@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charsef='utf-8'>
+    <title>CP 2 - Web Scraper</title>
+    <link rel='stylesheet' href='styles.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+    <script src='index.js'></script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Eric Kim's Pixel Sketch Pad</h1>
+      <section id='brush-section'>
+        <h1>Brush Size</h1>
+        <input type='radio' id='small' name='brush-size' value='20'>
+        <label for='small'>Small</label>
+        <input type='radio' id='medium' name='brush-size' value='10' checked='checked'>
+        <label for='medium'>Medium</label>
+        <input type='radio' id='large' name='brush-size' value='4'>
+        <label for='large'>Large</label>
+        <button id='brush-button' class=btn>Select Brush</button>
+      </section>
+      <section id='sketchpad' class=''>
+        <h2>Painting</h2>
+        <canvas id='canvas' class='border' width='500' height='500'></canvas>
+        <div>
+          <button id='tool-button' class='btn'>Eraser</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
