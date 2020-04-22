@@ -2,15 +2,15 @@
   Name: Eric Kim
   Date: April 19, 2020
   Section: CSE 154 AK
-  This index.html is the mainpage for my pixel sketchpad creative work. Here, 
-  the user could select different brush sizes, and draw/erase inside the square 
+  This index.html is the mainpage for my pixel sketchpad creative work. Here,
+  the user could select different brush sizes, and draw/erase inside the square
   'sketchpad'.
 -->
 
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <meta charsef='utf-8'>
+    <meta charset='utf-8'>
     <title>CP 2 - Pixel Sketchpad</title>
     <link rel='stylesheet' href='styles.css'>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -23,17 +23,17 @@
         <h1>Brush Size</h1>
         <input type='radio' id='small' name='brush-size' value='20'>
         <label for='small'>Small</label>
-        <input type='radio' id='medium' name='brush-size' value='10' checked='checked'>
+        <input type='radio' id='medium' name='brush-size' value='10'>
         <label for='medium'>Medium</label>
         <input type='radio' id='large' name='brush-size' value='4'>
         <label for='large'>Large</label>
         <button id='brush-button' class='btn'>Select Brush</button>
       </section>
       <section id='sketchpad'>
-        <h2>Painting</h2>
-        <canvas id='canvas' class='border' width='500' height='500'></canvas>
+        <h2 class='hidden'>Painting</h2>
+        <canvas id='canvas' class='border'></canvas>
         <div>
-          <button id='tool-button' class='btn'>Eraser</button>
+          <button id='tool-button' class='btn hidden'>Eraser</button>
         </div>
       </section>
       <footer>
