@@ -1,11 +1,19 @@
+<!--
+  Name: Eric Kim
+  Date: April 19, 2020
+  Section: CSE 154 AK
+  This index.html is the mainpage for my pixel sketchpad creative work. Here, 
+  the user could select different brush sizes, and draw/erase inside the square 
+  'sketchpad'.
+-->
+
 <!DOCTYPE html>
 <html lang='en'>
   <head>
     <meta charsef='utf-8'>
-    <title>CP 2 - Web Scraper</title>
+    <title>CP 2 - Pixel Sketchpad</title>
     <link rel='stylesheet' href='styles.css'>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-
     <script src='index.js'></script>
   </head>
   <body>
@@ -19,15 +27,20 @@
         <label for='medium'>Medium</label>
         <input type='radio' id='large' name='brush-size' value='4'>
         <label for='large'>Large</label>
-        <button id='brush-button' class=btn>Select Brush</button>
+        <button id='brush-button' class='btn'>Select Brush</button>
       </section>
-      <section id='sketchpad' class=''>
+      <section id='sketchpad'>
         <h2>Painting</h2>
         <canvas id='canvas' class='border' width='500' height='500'></canvas>
         <div>
           <button id='tool-button' class='btn'>Eraser</button>
         </div>
       </section>
+      <footer>
+        <p>To learn about canvas, I made use of this
+          <a href='https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API'>MDN Web Docs reference</a>.
+        </p>
+      </footer>
     </div>
   </body>
 </html>

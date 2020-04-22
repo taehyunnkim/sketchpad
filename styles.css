@@ -1,3 +1,12 @@
+/*
+  Name: Eric Kim
+  Date: April 19, 2020
+  Section: CSE 154 AK
+  This is the index.css page for my pixel sketchpad creative work.
+  It is used by the main page, index.html, to keep the look and feel
+  of the website consistent.
+*/
+
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -9,11 +18,15 @@ canvas {
 }
 
 h1 {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 h2 {
   color: rgb(122, 154, 250);
+}
+
+input {
+  margin: 15px 5px;
 }
 
 button {
@@ -28,19 +41,15 @@ button {
   transition: all 0.5s cubic-bezier(.25,.8,.25,1);
 }
 
-#brush-button {
-  display: block;
-}
-
-input {
-  margin: 15px 5px;
-}
-
 button:hover {
   cursor: pointer;
-  background-color: rgb(97, 137, 255);
+  opacity: 0.8;
 }
 
 .hidden {
   display: none;
+}
+
+#brush-button {
+  display: block;
 }
