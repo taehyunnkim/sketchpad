@@ -12,6 +12,7 @@
 (function() {
   const CANVAS_SIZE = 400;
   window.addEventListener('load', init);
+
   /**
    * Sets up the sketchpad/canvas with the default 'medium' brush size.
    */
@@ -23,15 +24,17 @@
     let selectedBrushAtStart = false;
     let pixelSize;
     canvas.context = context;
-    canvas.width = canvas.height = CANVAS_SIZE;
+    canvas.width = CANVAS_SIZE;
+    canvas.height = CANVAS_SIZE;
 
     brushButton.addEventListener('click', function() {
       let brushSize = setBrush();
       selectedBrushAtStart = true;
       pixelSize = CANVAS_SIZE / brushSize;
+      moveToSketchMode();
     });
 
-    canvas.addEventListener('click', function (evt) {
+    canvas.addEventListener('click', function(evt) {
       if (selectedBrushAtStart) {
         let isEraser = checkEraser(toolButton);
         drawPixel(evt, this, isEraser, pixelSize);
@@ -51,7 +54,7 @@
   function drawPixel(evt, canvas, isEraser, pixelSize) {
     let pos = getMouseLocation(evt, canvas);
     let nthCol = Math.floor(pos.xCord / pixelSize);
-    let nthRow = Math.floor(pos.yCord/ pixelSize);
+    let nthRow = Math.floor(pos.yCord / pixelSize);
     if (isEraser) {
       canvas.context.clearRect(nthCol * pixelSize, nthRow * pixelSize, pixelSize, pixelSize);
     } else {
@@ -70,8 +73,7 @@
     return {
       xCord: evt.clientX - canvasRect.left,
       yCord: evt.clientY - canvasRect.top
-
-    }
+    };
   }
 
   /**
@@ -100,17 +102,11 @@
   }
 
   /**
-   * Returns the selected brush size from radio buttons and adds a new button
-   * in the document to change the brush size.
+   * Returns the selected brush size from radio buttons.
    * @return {int} The size of the selected brush.
    */
   function setBrush() {
     let radios = document.getElementsByName('brush-size');
-    let sketchpad = document.querySelector('#sketchpad > div');
-    let action = document.querySelector('#sketchpad > h2');
-    let backButton = document.createElement('button');
-    let brushSelections = document.getElementById('brush-section');
-    let toolButton = document.getElementById('tool-button');
     let size;
 
     for (let i = 0; i < radios.length; i++) {
@@ -118,6 +114,22 @@
         size = radios[i].value;
       }
     }
+
+    return size;
+  }
+
+  /**
+   * Hides the brush selections section from the document.
+   * Reveals user action and tools in the document.
+   * Adds a button that, when clicked, hides user action and tools,
+   * and reveals the brush selections again.
+   */
+  function moveToSketchMode() {
+    let sketchpad = document.querySelector('#sketchpad > div');
+    let action = document.querySelector('#sketchpad > h2');
+    let backButton = document.createElement('button');
+    let brushSelections = document.getElementById('brush-section');
+    let toolButton = document.getElementById('tool-button');
 
     backButton.innerHTML = 'Change Brush';
     backButton.classList.add('btn');
@@ -131,6 +143,5 @@
     brushSelections.classList.add('hidden');
     action.classList.remove('hidden');
     toolButton.classList.remove('hidden');
-    return size; 
   }
 })();
